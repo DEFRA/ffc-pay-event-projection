@@ -1,0 +1,8 @@
+test-output
+node_modules
+helm/**/*.lock
+*.tgz
+.vscode
+local.settings.json
+settings.json
+.npm

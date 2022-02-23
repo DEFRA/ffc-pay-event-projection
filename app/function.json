@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "%PAY_EVENT_PROJECTION_TOPIC%",
+      "subscriptionName": "%PAY_EVENT_PROJECTION_SUBSCRIPTION%",
+      "connection": "AzureWebJobsAzureSBConnection"
+    },
+    {
+      "name": "blobBinding",
+      "type": "blob",
+      "path": "%AZURE_STORAGE_CONTAINER%/{id}.json",
+      "connection": "StorageConnectionString",
+      "direction": "out"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "serverless",
+      "connectionStringSetting": "SignalrConnectionString",
+      "direction": "out"
+    }
+  ]
+}
