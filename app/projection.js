@@ -13,4 +13,4 @@ const buildProjection = (partitionKey, events) => {
   return projection
 }
 
-module.exports = buildProjection
+module.exports = { buildProjection }

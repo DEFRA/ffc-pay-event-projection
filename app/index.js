@@ -1,9 +1,9 @@
-const queryEntities = require('./storage')
-const buildProjection = require('./projection')
+const { queryEntities } = require('./storage')
+const { buildProjection } = require('./projection')
 
 module.exports = async function (context, message) {
   try {
-    if (message?.id !== undefined) {
+    if (message?.id) {
       const partitionKey = message.id
       const events = await queryEntities(partitionKey)
       const projection = buildProjection(partitionKey, events)
