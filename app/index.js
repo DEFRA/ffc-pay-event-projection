@@ -12,6 +12,5 @@ module.exports = async function (context, message) {
     }
   } catch (error) {
     context.log.error('Unable to process message:', error)
-    throw error
   }
 }

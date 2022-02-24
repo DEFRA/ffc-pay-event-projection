@@ -9,7 +9,16 @@ describe('index function', () => {
   const message = { id: '123' }
 
   afterEach(async () => {
-    jest.clearAllMocks()
+    jest.resetAllMocks()
+  })
+
+  test('receives message from service bus with no id with no calls to queryEntities and buildProjection', async () => {
+    await processProjection(mockContext, null)
+
+    expect(mockStorage.queryEntities).toHaveBeenCalledTimes(0)
+    expect(mockProjection.buildProjection).toHaveBeenCalledTimes(0)
+    expect(mockContext.bindings.blobBinding).toEqual(undefined)
+    expect(mockContext.done.mock.calls.length).toEqual(0)
   })
 
   test('receives message from service bus and successfully calls queryEntities and buildProjection', async () => {
@@ -18,9 +27,15 @@ describe('index function', () => {
 
     await processProjection(mockContext, message)
 
-    expect(mockStorage.queryEntities.mock.calls.length).toBe(1)
-    // expect(mockProjection.buildProjection).toHaveBeenCalledTimes(1)
-    // expect(mockContext.blobBinding).toEqual(message)
-    // expect(mockContext.done.mock.calls.length).toEqual(1)
+    expect(mockStorage.queryEntities).toHaveBeenCalledTimes(1)
+    expect(mockProjection.buildProjection).toHaveBeenCalledTimes(1)
+    expect(mockContext.bindings).toHaveProperty('blobBinding')
+    expect(mockContext.done.mock.calls.length).toEqual(1)
+  })
+
+  test('an error is thrown (and logged) when an error occurs', async () => {
+    mockStorage.queryEntities.mockImplementation(() => { throw new Error() })
+    await processProjection(mockContext, message)
+    expect(mockContext.log.error).toHaveBeenCalledTimes(1)
   })
 })
