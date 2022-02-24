@@ -1,3 +1,3 @@
-@Library('defra-library@psd-1273-spike-function') _
+@Library('defra-library@v-9'') _
 
 buildNodeJsFunction()
