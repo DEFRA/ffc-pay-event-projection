@@ -6,7 +6,7 @@
       "direction": "in",
       "topicName": "%PAY_EVENT_PROJECTION_TOPIC%",
       "subscriptionName": "%PAY_EVENT_PROJECTION_SUBSCRIPTION%",
-      "connection": "AzureWebJobsAzureSBConnection"
+      "connection": "ServiceBusConnectionString"
     },
     {
       "name": "blobBinding",
