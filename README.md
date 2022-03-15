@@ -51,6 +51,16 @@ If any option other than `1` is taken, then the connection strings in `local.set
 
 `npm run test` or `npm run test:watch` to run with file watching to support Test Driven Development (TDD)
 
+## Service Bus
+
+### Example event message
+
+```
+{
+	"id": "1234567890"
+}
+```
+
 ## Configuration - Application Settings
 
 Currently the deployment of application settings is manual and can be editted in either the Azure portal or via the Azure CLI
