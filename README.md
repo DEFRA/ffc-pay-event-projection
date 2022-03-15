@@ -63,7 +63,7 @@ If any option other than `1` is taken, then the connection strings in `local.set
 
 ## Configuration - Application Settings
 
-Currently the deployment of application settings is manual and can be editted in either the Azure portal or via the Azure CLI
+Currently the deployment of application settings is manual and can be edited in either the Azure portal or via the Azure CLI
 
 ### Example
 
