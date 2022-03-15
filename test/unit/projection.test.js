@@ -1,4 +1,4 @@
-const { buildProjection } = require('../../app/projection')
+const { buildProjection } = require('../../ffc-pay-event-projection/projection')
 
 describe('projection function', () => {
   const events = [

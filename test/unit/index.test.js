@@ -1,8 +1,8 @@
-jest.mock('../../app/storage')
-const mockStorage = require('../../app/storage')
-jest.mock('../../app/projection')
-const mockProjection = require('../../app/projection')
-const processProjection = require('../../app/index')
+jest.mock('../../ffc-pay-event-projection/storage')
+const mockStorage = require('../../ffc-pay-event-projection/storage')
+jest.mock('../../ffc-pay-event-projection/projection')
+const mockProjection = require('../../ffc-pay-event-projection/projection')
+const processProjection = require('../../ffc-pay-event-projection/index')
 const mockContext = require('../mock-context')
 
 describe('index function', () => {

@@ -1,4 +1,4 @@
-const { queryEntities } = require('../../../app/storage')
+const { queryEntities } = require('../../../ffc-pay-event-projection/storage')
 jest.mock('@azure/data-tables', () => {
   return {
     odata: jest.fn(),
