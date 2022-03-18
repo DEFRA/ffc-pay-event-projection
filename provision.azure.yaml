@@ -1,0 +1,6 @@
+resources:
+  topics:
+    - name: event
+    - name: projection
+  storage:
+    - name: ffcpayeventprojection
