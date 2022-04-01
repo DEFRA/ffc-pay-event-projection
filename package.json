@@ -1,7 +1,7 @@
 {
-  "name": "ffc-pay-event",
-  "version": "1.0.0",
-  "description": "Azure Function to process pay events",
+  "name": "ffc-pay-event-projection",
+  "version": "1.1.0",
+  "description": "Azure Function to create projections from events",
   "author": "Defra",
   "contributors": [
     "Steve Dickinson <steve.dickinson@defra.gov.uk>"
