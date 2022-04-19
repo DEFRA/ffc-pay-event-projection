@@ -1,16 +1,23 @@
-const buildProjection = (partitionKey, events) => {
+const buildProjection = (message, events) => {
   const projection = {}
 
   if (events.length > 0) {
-    for (const event of events) {
-      projection[event.EventType] = {
-        timestamp: event.timestamp,
-        eventType: event.EventType,
-        payload: JSON.parse(event.Payload)
-      }
-    }
+    const sortedEvents = events.sort((a, b) => b.EventRaised - a.EventRaised)
+    projection.correlationId = message.id
+    projection.agreementNumber = message.agreementNumber
+    projection.paymentRequestNumber = message.paymentRequestNumber
+    projection.frn = message.frn
+    projection.events = []
 
-    projection.invoiceNumber = partitionKey
+    for (const event of sortedEvents) {
+      const payload = JSON.parse(event.Payload)
+      projection.events.push({
+        eventType: event.EventType,
+        timestamp: event.timestamp,
+        eventRaised: event.EventRaised,
+        payload
+      })
+    }
   }
 
   return projection

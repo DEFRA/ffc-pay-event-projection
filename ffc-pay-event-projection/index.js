@@ -8,7 +8,7 @@ module.exports = async function (context, message) {
       const partitionKey = message.id
       const events = await queryEntities(partitionKey)
       context.log.info(`Event found: ${JSON.stringify(events)}`)
-      const projection = buildProjection(partitionKey, events)
+      const projection = buildProjection(message, events)
       context.log.info(`Projection built: ${JSON.stringify(projection)}`)
       context.bindings.blobBinding = projection
       context.done()

@@ -15,7 +15,11 @@ describe('projection function', () => {
 
   test('projection is created from the events payload', async () => {
     const projectionOutput = {
-      InvoiceCreated: {
+      agreementNumber: '123',
+      correlationId: '123',
+      frn: '123',
+      paymentRequestNumber: '123',
+      events: [{
         timestamp: '2019-01-01T00:00:00.000Z',
         eventType: 'InvoiceCreated',
         payload: {
@@ -25,11 +29,17 @@ describe('projection function', () => {
           invoiceTotal: 100,
           invoiceStatus: 'Draft'
         }
-      },
-      invoiceNumber: '1234567890'
+      }]
     }
 
-    const projection = await buildProjection('1234567890', events)
+    const message = {
+      id: '123',
+      agreementNumber: '123',
+      paymentRequestNumber: '123',
+      frn: '123'
+    }
+
+    const projection = await buildProjection(message, events)
     expect(projection).toEqual(projectionOutput)
   })
 
