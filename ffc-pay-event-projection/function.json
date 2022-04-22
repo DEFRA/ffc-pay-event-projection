@@ -11,7 +11,7 @@
     {
       "name": "blobBinding",
       "type": "blob",
-      "path": "%AZURE_STORAGE_CONTAINER%/{id}.json",
+      "path": "%AZURE_STORAGE_CONTAINER%/{frn}/{agreementNumber}/{paymentRequestNumber}/{id}.json",
       "connection": "StorageConnectionString",
       "direction": "out"
     },
