@@ -1,25 +1,25 @@
 const { DefaultAzureCredential } = require('@azure/identity')
 const { TableClient, odata } = require('@azure/data-tables')
+const { storageConnectionString, storageTableName } = require('./config')
 
 let tableClient
 let tableInitialised
-const tableName = process.env.AZURE_STORAGE_TABLE
 
 if (process.env.AZURE_STORAGE_USE_CONNECTION_STRING) {
   console.log('Using connection string for TableClient')
-  tableClient = TableClient.fromConnectionString(process.env.TableConnectionString, tableName, { allowInsecureConnection: true })
+  tableClient = TableClient.fromConnectionString(storageConnectionString, storageTableName, { allowInsecureConnection: true })
 } else {
   console.log('Using DefaultAzureCredential for BlobServiceClient')
   tableClient = new TableClient(
     `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.table.core.windows.net`,
-    tableName,
+    storageTableName,
     new DefaultAzureCredential()
   )
 }
 
 const initialiseTable = async () => {
   console.log('Making sure table exist')
-  await tableClient.createTable(tableName)
+  await tableClient.createTable(storageTableName)
   tableInitialised = true
 }
 
