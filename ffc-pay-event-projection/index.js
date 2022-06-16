@@ -4,7 +4,7 @@ const { buildProjection } = require('./projection')
 module.exports = async function (context, message) {
   context.log.info(`Received: ${JSON.stringify(message)}`)
   try {
-    if (message?.id) {
+    if (message?.id && message?.frn) {
       const partitionKey = message.id
       const events = await queryEntities(partitionKey)
       context.log.info(`Event found: ${JSON.stringify(events)}`)

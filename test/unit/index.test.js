@@ -6,7 +6,7 @@ const processProjection = require('../../ffc-pay-event-projection/index')
 const mockContext = require('../mock-context')
 
 describe('index function', () => {
-  const message = { id: '123' }
+  const message = { id: '123', frn: 1234567890 }
 
   afterEach(async () => {
     jest.resetAllMocks()
