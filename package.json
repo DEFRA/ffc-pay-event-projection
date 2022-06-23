@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-event-projection",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Azure Function to process pay events",
   "author": "Defra",
   "contributors": [
@@ -13,7 +13,8 @@
     "start:detached": "func start -p 7081 1> /dev/null 2> /dev/null &",
     "start:verbose": "func start -p 7081 --verbose",
     "test": "jest",
-    "test:watch": "jest --coverage=false --onlyChanged --watch"
+    "test:watch": "jest --coverage=false --onlyChanged --watch",
+    "pretest": "npm run lint"
   },
   "devDependencies": {
     "@types/jest": "^27.0.0",
