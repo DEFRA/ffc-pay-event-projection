@@ -1,12 +1,13 @@
 {
   "name": "ffc-pay-event-projection",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Azure Function to process pay events",
   "author": "Defra",
   "contributors": [
     "Steve Dickinson <steve.dickinson@defra.gov.uk>",
     "Marc Templeton <m.templeton@kainos.com>",
-    "Simon Dunn <simon.dunn1@defra.gov.uk>"
+    "Simon Dunn <simon.dunn1@defra.gov.uk>",
+    "Callum Leighton <callum.leighton@kainos.com>"
   ],
   "scripts": {
     "lint": "standard",
