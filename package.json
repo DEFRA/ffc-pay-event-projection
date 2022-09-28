@@ -1,17 +1,18 @@
 {
   "name": "ffc-pay-event-projection",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Azure Function to process pay events",
   "author": "Defra",
   "contributors": [
     "Steve Dickinson <steve.dickinson@defra.gov.uk>",
     "Marc Templeton <m.templeton@kainos.com>",
-    "Simon Dunn <simon.dunn1@defra.gov.uk>"
+    "Simon Dunn <simon.dunn1@defra.gov.uk>",
+    "Callum Leighton <callum.leighton@kainos.com>"
   ],
   "scripts": {
     "lint": "standard",
     "start": "func start -p 7081",
-    "start:detached": "func start -p 7081 1> /dev/null 2> /dev/null &",
+    "start:detached": "func start -p 7081 1> logs/out.log 2> logs/err.log &",
     "start:verbose": "func start -p 7081 --verbose",
     "test": "jest",
     "test:watch": "jest --coverage=false --onlyChanged --watch",
