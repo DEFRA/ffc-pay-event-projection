@@ -3,4 +3,4 @@ resources:
     - name: event
     - name: projection
   storage:
-    - name: ffcpayeventprojection
+    - name: ffcpayevenproj
